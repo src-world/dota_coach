@@ -1,17 +1,17 @@
 import sqlite3
 
+conn = sqlite3.connect("dota_bot.db")
+cur = conn.cursor()
+
 def init_db():
-    conn = sqlite3.connect("dota_bot.db")
-    cur = conn.cursor()
     cur.execute("""
             CREATE TABLE IF NOT EXISTS tilt_diary (
-                user_id INTEGER
-                match_id INTEGER
-                result TEXT
-                tilt_level INTEGER
-                hero TEXT
-                date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )
+            user_id INTEGER,
+            date TEXT,
+            result TEXT,
+            anger_level INTEGER
+    )
 """)
     conn.commit()
     conn.close
+
