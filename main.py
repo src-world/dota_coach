@@ -3,8 +3,9 @@ from config import TOKEN
 import asyncio
 import logging
 from apps.handlers import router
+import os
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=os.getenv('TOKEN'))
 dp = Dispatcher()
 
 async def main():
